@@ -1,17 +1,17 @@
 function canSum(targetSum, parts, cache = {}) {
-  // if (targetSum in cache) return cache[targetSum];
+  if (targetSum in cache) return cache[targetSum];
   if (targetSum === 0) return true;
 
   const choices = parts.filter((part) => part <= targetSum);
 
   for (let choice of choices) {
     if (canSum(targetSum - choice, parts, cache)) {
-      // cache[targetSum] = true;
+      cache[targetSum] = true;
       return true;
     }
   }
 
-  // cache[targetSum] = false;
+  cache[targetSum] = false;
   return false;
 }
 
