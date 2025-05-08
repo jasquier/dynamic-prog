@@ -1,4 +1,5 @@
 function howSum(targetSum, numbers, cache = {}) {
+  if (targetSum in cache) return cache[targetSum];
   if (targetSum === 0) return [];
   if (targetSum < 0) return null;
 
@@ -6,10 +7,12 @@ function howSum(targetSum, numbers, cache = {}) {
     const subResult = howSum(targetSum - choice, numbers, cache);
     if (Array.isArray(subResult)) {
       const result = [choice, ...subResult];
+      cache[targetSum] = result;
       return result;
     }
   }
 
+  cache[targetSum] = null;
   return null;
 }
 
