@@ -1,14 +1,18 @@
-function countConstruct(target, words) {
+function countConstruct(target, words, cache = {}) {
+  if (target in cache) return cache[target];
   if (target === "") return 1;
 
-  return words
+  const total = words
     .filter((word) => target.startsWith(word))
     .map((prefix) => target.slice(prefix.length))
     .reduce((sum, suffix) => {
-      const ways = countConstruct(suffix, words);
+      const ways = countConstruct(suffix, words, cache);
       sum += ways;
       return sum;
     }, 0);
+
+  cache[target] = total;
+  return total;
 }
 
 console.log(countConstruct("abcdef", ["ab", "abc", "cd", "def", "abcd"]));
