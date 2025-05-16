@@ -1,4 +1,8 @@
-function countConstruct(target, words, cache = {}) {
+function countConstruct(
+  target: string,
+  words: string[],
+  cache: Record<string, number> = {},
+) {
   if (target in cache) return cache[target];
   if (target === "") return 1;
 

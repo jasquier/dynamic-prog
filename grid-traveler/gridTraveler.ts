@@ -1,10 +1,10 @@
-const cache = {};
+const cache: Record<string, number> = {};
 
-function makeKey(m, n) {
+function makeKey(m: number, n: number) {
   return m <= n ? `${m},${n}` : `${n},${m}`;
 }
 
-function gridTraveler(m, n) {
+function gridTraveler(m: number, n: number) {
   const key = makeKey(m, n);
   if (key in cache) return cache[key];
 

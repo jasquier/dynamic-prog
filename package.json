@@ -4,11 +4,13 @@
   "description": "This repository contains my code for [free code camp's dynamic programming tutorial](https://www.youtube.com/watch?v=oBt53YbR9Kk).",
   "private": true,
   "scripts": {
+    "start": "tsx",
     "style": "prettier --write ."
   },
   "author": "John A. Squier <jasquier@gmail.com>",
   "license": "ISC",
   "devDependencies": {
-    "prettier": "^3.5.3"
+    "prettier": "^3.5.3",
+    "tsx": "^4.19.4"
   }
 }

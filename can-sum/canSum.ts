@@ -1,4 +1,8 @@
-function canSum(targetSum, parts, cache = {}) {
+function canSum(
+  targetSum: number,
+  parts: number[],
+  cache: Record<number, boolean> = {},
+) {
   if (targetSum in cache) return cache[targetSum];
   if (targetSum === 0) return true;
 

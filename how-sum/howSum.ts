@@ -1,12 +1,16 @@
-function howSum(targetSum, numbers, cache = {}) {
+function howSum(
+  targetSum: number,
+  numbers: number[],
+  cache: Record<number, number[] | null> = {},
+) {
   if (targetSum in cache) return cache[targetSum];
-  if (targetSum === 0) return [];
+  if (targetSum === 0) return [] satisfies number[];
   if (targetSum < 0) return null;
 
   for (let choice of numbers) {
     const subResult = howSum(targetSum - choice, numbers, cache);
     if (Array.isArray(subResult)) {
-      const result = [choice, ...subResult];
+      const result: number[] = [choice, ...subResult];
       cache[targetSum] = result;
       return result;
     }

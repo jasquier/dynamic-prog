@@ -1,8 +1,12 @@
-function allConstruct(target, words, cache = {}) {
+function allConstruct(
+  target: string,
+  words: string[],
+  cache: Record<string, string[][]> = {},
+) {
   if (target in cache) return cache[target];
   if (target === "") return [[]];
 
-  const result = [];
+  const result: string[][] = [];
 
   const choices = words.filter((word) => target.startsWith(word));
 

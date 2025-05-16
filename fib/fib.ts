@@ -1,6 +1,6 @@
-const cache = {};
+const cache: Record<number, number> = {};
 
-function fib(n) {
+function fib(n: number) {
   if (n in cache) return cache[n];
   if (n <= 2) return 1;
 

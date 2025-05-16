@@ -1,4 +1,8 @@
-function canConstruct(target, words, cache = {}) {
+function canConstruct(
+  target: string,
+  words: string[],
+  cache: Record<string, boolean> = {},
+) {
   if (target in cache) return cache[target];
   if (target === "") return true;
 

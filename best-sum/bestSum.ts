@@ -1,9 +1,13 @@
-function bestSum(targetSum, numbers, cache = {}) {
+function bestSum(
+  targetSum: number,
+  numbers: number[],
+  cache: Record<number, number[] | null> = {},
+) {
   if (targetSum in cache) return cache[targetSum];
   if (targetSum === 0) return [];
   if (targetSum < 0) return null;
 
-  let shortestCombo = null;
+  let shortestCombo: number[] | null = null;
 
   for (let choice of numbers) {
     const subResult = bestSum(targetSum - choice, numbers, cache);
