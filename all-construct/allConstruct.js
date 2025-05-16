@@ -1,4 +1,5 @@
-function allConstruct(target, words) {
+function allConstruct(target, words, cache = {}) {
+  if (target in cache) return cache[target];
   if (target === "") return [[]];
 
   const result = [];
@@ -7,11 +8,14 @@ function allConstruct(target, words) {
 
   for (const choice of choices) {
     const suffix = target.slice(choice.length);
-    const suffixWays = allConstruct(suffix, words);
+    const suffixWays = allConstruct(suffix, words, cache);
     const targetWays = suffixWays.map((way) => [choice, ...way]);
-    result.push(...targetWays);
+    targetWays.forEach((way) => {
+      result.push(way);
+    });
   }
 
+  cache[target] = result;
   return result;
 }
 
@@ -22,6 +26,7 @@ console.log(
 console.log(
   allConstruct("enterapotentpot", ["a", "p", "ent", "enter", "ot", "o", "t"]),
 );
+// Do not remove the 'f' in target and run!
 console.log(
   allConstruct("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef", [
     "e",
