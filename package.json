@@ -1,0 +1,14 @@
+{
+  "name": "dynamic-prog",
+  "version": "1.0.0",
+  "description": "This repository contains my code for [free code camp's dynamic programming tutorial](https://www.youtube.com/watch?v=oBt53YbR9Kk).",
+  "private": true,
+  "scripts": {
+    "style": "prettier --write ."
+  },
+  "author": "John A. Squier <jasquier@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "^3.5.3"
+  }
+}
