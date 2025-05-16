@@ -1,11 +1,10 @@
-const cache: Record<number, number> = {};
-
-function fib(n: number) {
+function fib(n: number, cache: Record<number, number> = {}) {
   if (n in cache) return cache[n];
   if (n <= 2) return 1;
 
-  cache[n] = fib(n - 1) + fib(n - 2);
-  return cache[n];
+  const result = fib(n - 1, cache) + fib(n - 2, cache);
+  cache[n] = result;
+  return result;
 }
 
 console.log(fib(6));
