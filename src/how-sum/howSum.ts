@@ -3,7 +3,7 @@ function howSum(
   numbers: number[],
   cache: Record<number, number[] | null> = {},
 ) {
-  if (targetSum in cache) return cache[targetSum];
+  if (cache[targetSum] !== undefined) return cache[targetSum];
   if (targetSum === 0) return [] satisfies number[];
   if (targetSum < 0) return null;
 
