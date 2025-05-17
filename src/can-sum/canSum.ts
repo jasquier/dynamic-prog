@@ -3,7 +3,7 @@ function canSum(
   parts: number[],
   cache: Record<number, boolean> = {},
 ) {
-  if (targetSum in cache) return cache[targetSum];
+  if (cache[targetSum] !== undefined) return cache[targetSum];
   if (targetSum === 0) return true;
 
   const choices = parts.filter((part) => part <= targetSum);
