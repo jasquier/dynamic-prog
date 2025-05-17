@@ -13,8 +13,8 @@ function allConstruct(
   for (const choice of choices) {
     const suffix = target.slice(choice.length);
     const suffixWays = allConstruct(suffix, words, cache);
-    const targetWays = suffixWays.map((way) => [choice, ...way]);
-    targetWays.forEach((way) => {
+    const targetWays = suffixWays?.map((way) => [choice, ...way]);
+    targetWays?.forEach((way) => {
       result.push(way);
     });
   }

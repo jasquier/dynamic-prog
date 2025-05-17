@@ -1,5 +1,5 @@
-function fib(n: number, cache: Record<number, number> = {}) {
-  if (n in cache) return cache[n];
+function fib(n: number, cache: Record<number, number> = {}): number {
+  if (cache[n] !== undefined) return cache[n];
   if (n <= 2) return 1;
 
   const result = fib(n - 1, cache) + fib(n - 2, cache);

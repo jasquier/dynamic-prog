@@ -2,8 +2,8 @@ function bestSum(
   targetSum: number,
   numbers: number[],
   cache: Record<number, number[] | null> = {},
-) {
-  if (targetSum in cache) return cache[targetSum];
+): number[] | null {
+  if (cache[targetSum] !== undefined) return cache[targetSum];
   if (targetSum === 0) return [];
   if (targetSum < 0) return null;
 

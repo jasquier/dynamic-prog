@@ -10,7 +10,7 @@ function countConstruct(
     .filter((word) => target.startsWith(word))
     .map((prefix) => target.slice(prefix.length))
     .reduce((sum, suffix) => {
-      const ways = countConstruct(suffix, words, cache);
+      const ways = countConstruct(suffix, words, cache) ?? 0;
       sum += ways;
       return sum;
     }, 0);

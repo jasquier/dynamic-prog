@@ -4,9 +4,9 @@ function makeKey(m: number, n: number) {
   return m <= n ? `${m},${n}` : `${n},${m}`;
 }
 
-function gridTraveler(m: number, n: number) {
+function gridTraveler(m: number, n: number): number {
   const key = makeKey(m, n);
-  if (key in cache) return cache[key];
+  if (cache[key] !== undefined) return cache[key];
 
   if (m === 0 || n === 0) return 0;
   if (m === 1 && n === 1) return 1;
