@@ -17,9 +17,29 @@ function gridTraveler(
   return cache[key];
 }
 
+function gridTravelerIter(m: number, n: number) {
+  const table: number[][] = Array(m + 1)
+    .fill(null)
+    .map((_) => Array(n + 1).fill(0));
+
+  table![1]![1] = 1;
+
+  for (let i = 0; i <= m; i++) {
+    for (let j = 0; j <= n; j++) {
+      const cur = table![i]![j] ?? 0;
+
+      if (j + 1 <= n) table![i]![j + 1]! += cur;
+      if (i + 1 <= m) table![i + 1]![j]! += cur;
+    }
+  }
+
+  return table![m]![n] ?? 0;
+}
+
 console.log(gridTraveler(1, 1));
 console.log(gridTraveler(2, 1));
 console.log(gridTraveler(1, 2));
 console.log(gridTraveler(2, 2));
 console.log(gridTraveler(2, 3));
 console.log(gridTraveler(18, 18).toLocaleString());
+console.log(gridTravelerIter(18, 18).toLocaleString());
