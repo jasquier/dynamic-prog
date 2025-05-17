@@ -1,17 +1,19 @@
-const cache: Record<string, number> = {};
-
 function makeKey(m: number, n: number) {
   return m <= n ? `${m},${n}` : `${n},${m}`;
 }
 
-function gridTraveler(m: number, n: number): number {
+function gridTraveler(
+  m: number,
+  n: number,
+  cache: Record<string, number> = {},
+): number {
   const key = makeKey(m, n);
   if (cache[key] !== undefined) return cache[key];
 
   if (m === 0 || n === 0) return 0;
   if (m === 1 && n === 1) return 1;
 
-  cache[key] = gridTraveler(m - 1, n) + gridTraveler(m, n - 1);
+  cache[key] = gridTraveler(m - 1, n, cache) + gridTraveler(m, n - 1, cache);
   return cache[key];
 }
 
