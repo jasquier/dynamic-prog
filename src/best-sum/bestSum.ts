@@ -24,9 +24,30 @@ function bestSum(
   return shortestCombo;
 }
 
+function bestSumIter(targetSum: number, numbers: number[]): number[] | null {
+  const table: (number[] | null)[] = Array(targetSum + 1).fill(null);
+  table[0] = [];
+
+  for (let i = 0; i <= targetSum; i++) {
+    const ele = table[i];
+    if (Array.isArray(ele)) {
+      for (let num of numbers) {
+        const newSolution = ele.concat(num);
+        const curSolutionLen = table[i + num]?.length ?? Infinity;
+        if (newSolution.length < curSolutionLen) {
+          table[i + num] = newSolution;
+        }
+      }
+    }
+  }
+
+  return table[targetSum] ?? null;
+}
+
 console.log(bestSum(7, [2, 3]));
 console.log(bestSum(7, [5, 3, 4, 7]));
 console.log(bestSum(7, [2, 4]));
 console.log(bestSum(8, [2, 3, 5]));
 console.log(bestSum(300, [7, 14]));
 console.log(bestSum(100, [1, 2, 5, 25]));
+console.log(bestSumIter(100, [1, 2, 5, 25]));
