@@ -1,4 +1,4 @@
-function bestSum(
+export function bestSum(
   targetSum: number,
   numbers: number[],
   cache: Record<number, number[] | null> = {},
@@ -24,7 +24,10 @@ function bestSum(
   return shortestCombo;
 }
 
-function bestSumIter(targetSum: number, numbers: number[]): number[] | null {
+export function bestSumIter(
+  targetSum: number,
+  numbers: number[],
+): number[] | null {
   const table: (number[] | null)[] = Array(targetSum + 1).fill(null);
   table[0] = [];
 
@@ -43,11 +46,3 @@ function bestSumIter(targetSum: number, numbers: number[]): number[] | null {
 
   return table[targetSum] ?? null;
 }
-
-console.log(bestSum(7, [2, 3]));
-console.log(bestSum(7, [5, 3, 4, 7]));
-console.log(bestSum(7, [2, 4]));
-console.log(bestSum(8, [2, 3, 5]));
-console.log(bestSum(300, [7, 14]));
-console.log(bestSum(100, [1, 2, 5, 25]));
-console.log(bestSumIter(100, [1, 2, 5, 25]));

@@ -1,4 +1,4 @@
-function allConstruct(
+export function allConstruct(
   target: string,
   words: string[],
   cache: Record<string, string[][]> = {},
@@ -22,22 +22,3 @@ function allConstruct(
   cache[target] = result;
   return result;
 }
-
-console.log(allConstruct("abcdef", ["ab", "abc", "cd", "def", "abcd"]));
-console.log(
-  allConstruct("skateboard", ["bo", "rd", "ate", "t", "ska", "sk", "boar"]),
-);
-console.log(
-  allConstruct("enterapotentpot", ["a", "p", "ent", "enter", "ot", "o", "t"]),
-);
-// Do not remove the 'f' in target and run!
-console.log(
-  allConstruct("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef", [
-    "e",
-    "ee",
-    "eee",
-    "eeee",
-    "eeeee",
-    "eeeeee",
-  ]),
-);

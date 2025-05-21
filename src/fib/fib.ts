@@ -1,4 +1,4 @@
-function fib(n: number, cache: Record<number, number> = {}): number {
+export function fib(n: number, cache: Record<number, number> = {}): number {
   if (cache[n] !== undefined) return cache[n];
   if (n <= 2) return 1;
 
@@ -7,7 +7,7 @@ function fib(n: number, cache: Record<number, number> = {}): number {
   return result;
 }
 
-function fibIter(n: number) {
+export function fibIter(n: number) {
   const table = Array(n + 1).fill(0);
   table[1] = 1;
 
@@ -18,9 +18,3 @@ function fibIter(n: number) {
 
   return table[n];
 }
-
-console.log(fib(6));
-console.log(fib(7));
-console.log(fib(8));
-console.log(fib(50));
-console.log(fibIter(100));

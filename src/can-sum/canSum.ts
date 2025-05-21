@@ -1,4 +1,4 @@
-function canSum(
+export function canSum(
   targetSum: number,
   parts: number[],
   cache: Record<number, boolean> = {},
@@ -19,7 +19,7 @@ function canSum(
   return false;
 }
 
-function canSumIter(targetSum: number, parts: number[]): boolean {
+export function canSumIter(targetSum: number, parts: number[]): boolean {
   const table = Array(targetSum + 1).fill(false);
   table[0] = true;
 
@@ -33,10 +33,3 @@ function canSumIter(targetSum: number, parts: number[]): boolean {
 
   return table[targetSum];
 }
-
-console.log(canSum(7, [2, 3])); // true
-console.log(canSum(7, [5, 3, 4, 7])); // true
-console.log(canSum(7, [2, 4])); // false
-console.log(canSum(8, [2, 3, 5])); // true
-console.log(canSum(300, [7, 14])); // false
-console.log(canSumIter(300, [7, 14])); // false

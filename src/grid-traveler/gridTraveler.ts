@@ -2,7 +2,7 @@ function makeKey(m: number, n: number) {
   return m <= n ? `${m},${n}` : `${n},${m}`;
 }
 
-function gridTraveler(
+export function gridTraveler(
   m: number,
   n: number,
   cache: Record<string, number> = {},
@@ -17,7 +17,7 @@ function gridTraveler(
   return cache[key];
 }
 
-function gridTravelerIter(m: number, n: number) {
+export function gridTravelerIter(m: number, n: number) {
   const table: number[][] = Array(m + 1)
     .fill(null)
     .map((_) => Array(n + 1).fill(0));
@@ -35,11 +35,3 @@ function gridTravelerIter(m: number, n: number) {
 
   return table![m]![n] ?? 0;
 }
-
-console.log(gridTraveler(1, 1));
-console.log(gridTraveler(2, 1));
-console.log(gridTraveler(1, 2));
-console.log(gridTraveler(2, 2));
-console.log(gridTraveler(2, 3));
-console.log(gridTraveler(18, 18).toLocaleString());
-console.log(gridTravelerIter(18, 18).toLocaleString());

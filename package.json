@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "description": "This repository contains my code for [free code camp's dynamic programming tutorial](https://www.youtube.com/watch?v=oBt53YbR9Kk).",
   "private": true,
+  "type": "module",
   "scripts": {
     "prestart": "tsc",
     "start": "tsx",
-    "style": "prettier --write ."
+    "style": "prettier --write .",
+    "test": "node --experimental-strip-types --test"
   },
   "author": "John A. Squier <jasquier@gmail.com>",
   "license": "ISC",

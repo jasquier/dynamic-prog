@@ -1,4 +1,4 @@
-function howSum(
+export function howSum(
   targetSum: number,
   numbers: number[],
   cache: Record<number, number[] | null> = {},
@@ -20,7 +20,10 @@ function howSum(
   return null;
 }
 
-function howSumIter(targetSum: number, numbers: number[]): number[] | null {
+export function howSumIter(
+  targetSum: number,
+  numbers: number[],
+): number[] | null {
   const table: (number[] | null)[] = Array(targetSum + 1).fill(null);
   table[0] = [];
 
@@ -35,10 +38,3 @@ function howSumIter(targetSum: number, numbers: number[]): number[] | null {
 
   return table[targetSum] ?? null;
 }
-
-console.log(howSum(7, [2, 3]));
-console.log(howSum(7, [5, 3, 4, 7]));
-console.log(howSum(7, [2, 4]));
-console.log(howSum(8, [2, 3, 5]));
-console.log(howSum(300, [7, 14]));
-console.log(howSumIter(300, [7, 14]));
