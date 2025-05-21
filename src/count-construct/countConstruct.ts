@@ -3,7 +3,7 @@ export function countConstruct(
   words: string[],
   cache: Record<string, number> = {},
 ) {
-  if (target in cache) return cache[target];
+  if (cache[target] !== undefined) return cache[target];
   if (target === "") return 1;
 
   const total = words
