@@ -1,6 +1,6 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import { countConstruct } from "./countConstruct.ts";
+import { countConstruct, countConstructIter } from "./countConstruct.ts";
 
 type CountConstructInput = [target: string, words: string[]];
 type CountConstructTestPair = [input: CountConstructInput, expected: number];
@@ -23,6 +23,7 @@ describe("countConstruct", () => {
     pairs.forEach(([input, expected]) => {
       const [target, words] = input;
       assert.deepEqual(countConstruct(target, words), expected);
+      assert.deepEqual(countConstructIter(target, words), expected);
     });
   });
 });
