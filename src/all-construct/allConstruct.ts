@@ -3,7 +3,7 @@ export function allConstruct(
   words: string[],
   cache: Record<string, string[][]> = {},
 ) {
-  if (target in cache) return cache[target];
+  if (cache[target] !== undefined) return cache[target];
   if (target === "") return [[]];
 
   const result: string[][] = [];
