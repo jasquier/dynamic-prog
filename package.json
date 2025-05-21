@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "prestart": "tsc",
-    "start": "tsx",
+    "start": "node --experimental-strip-types",
     "style": "prettier --write .",
     "test": "node --experimental-strip-types --test"
   },
@@ -15,7 +15,6 @@
   "devDependencies": {
     "@types/node": "^22.15.18",
     "prettier": "^3.5.3",
-    "tsx": "^4.19.4",
     "typescript": "^5.8.3"
   }
 }
