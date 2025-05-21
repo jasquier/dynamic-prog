@@ -3,7 +3,7 @@ export function canConstruct(
   words: string[],
   cache: Record<string, boolean> = {},
 ) {
-  if (target in cache) return cache[target];
+  if (cache[target] !== undefined) return cache[target];
   if (target === "") return true;
 
   const choices = words.filter((word) => target.startsWith(word));
