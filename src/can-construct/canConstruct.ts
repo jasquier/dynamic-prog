@@ -16,3 +16,20 @@ export function canConstruct(
   cache[target] = false;
   return false;
 }
+
+export function canConstructIter(target: string, words: string[]) {
+  const table = Array<boolean>(target.length + 1).fill(false);
+  table[0] = true;
+
+  for (let i = 0; i <= target.length; i++) {
+    if (table[i]) {
+      for (const word of words) {
+        if (target.slice(i, i + word.length) === word) {
+          table[i + word.length] = true;
+        }
+      }
+    }
+  }
+
+  return table[target.length] ?? false;
+}

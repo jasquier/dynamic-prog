@@ -1,6 +1,6 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import { canConstruct } from "./canConstruct.ts";
+import { canConstruct, canConstructIter } from "./canConstruct.ts";
 
 type CanConstructInput = [target: string, words: string[]];
 type CanConstructTestPair = [input: CanConstructInput, expected: boolean];
@@ -23,6 +23,7 @@ describe("canConstruct", () => {
     pairs.forEach(([input, expected]) => {
       const [target, words] = input;
       assert.deepEqual(canConstruct(target, words), expected);
+      assert.deepEqual(canConstructIter(target, words), expected);
     });
   });
 });
