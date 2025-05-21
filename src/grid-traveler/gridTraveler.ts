@@ -18,9 +18,9 @@ export function gridTraveler(
 }
 
 export function gridTravelerIter(m: number, n: number) {
-  const table: number[][] = Array(m + 1)
+  const table = Array(m + 1)
     .fill(null)
-    .map((_) => Array(n + 1).fill(0));
+    .map((_) => Array<number>(n + 1).fill(0));
 
   table![1]![1] = 1;
 

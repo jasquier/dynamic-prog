@@ -8,12 +8,12 @@ export function fib(n: number, cache: Record<number, number> = {}): number {
 }
 
 export function fibIter(n: number) {
-  const table = Array(n + 1).fill(0);
+  const table = Array<number>(n + 1).fill(0);
   table[1] = 1;
 
   for (let i = 0; i <= n; i++) {
-    table[i + 1] += table[i];
-    table[i + 2] += table[i];
+    table[i + 1] = (table[i + 1] ?? 0) + (table[i] ?? 0);
+    table[i + 2] = (table[i + 2] ?? 0) + (table[i] ?? 0);
   }
 
   return table[n];

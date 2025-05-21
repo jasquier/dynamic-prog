@@ -20,7 +20,7 @@ export function canSum(
 }
 
 export function canSumIter(targetSum: number, parts: number[]): boolean {
-  const table = Array(targetSum + 1).fill(false);
+  const table = Array<boolean>(targetSum + 1).fill(false);
   table[0] = true;
 
   for (let i = 0; i <= targetSum; i++) {
@@ -31,5 +31,5 @@ export function canSumIter(targetSum: number, parts: number[]): boolean {
     }
   }
 
-  return table[targetSum];
+  return table[targetSum] ?? false;
 }

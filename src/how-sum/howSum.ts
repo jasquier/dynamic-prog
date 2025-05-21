@@ -24,7 +24,7 @@ export function howSumIter(
   targetSum: number,
   numbers: number[],
 ): number[] | null {
-  const table: (number[] | null)[] = Array(targetSum + 1).fill(null);
+  const table = Array<number[] | null>(targetSum + 1).fill(null);
   table[0] = [];
 
   for (let i = 0; i <= targetSum; i++) {
